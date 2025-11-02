@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME 😄</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffb6c1, #ffe4b5, #add8e6);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ff69b4;
+      color: white;
+      padding: 20px;
+      font-size: 2em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      margin: 40px auto;
+      max-width: 800px;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .funny-text {
+      color: #ff1493;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    /* Kolase 2x2 */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      justify-items: center;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .gallery img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border: 5px solid #ffc0cb;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      background-color: #ffa07a;
+      padding: 15px;
+      color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      font-weight: bold;
+    }
+
+    /* Efek love terbang */
+    .love {
+      position: absolute;
+      font-size: 2rem;
+      color: #ff1493;
+      animation: floatUp 1s ease-out forwards;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🌸 Selamat Datang di Dunia Gemas 🌸
+  </header>
+
+  <div class="container">
+    <p class="funny-text">waloooooooooo gesssssss 😍</p>
+
+    <div class="gallery">
+      <img src="image/pe.jpeg" alt="Gemas 1">
+      <img src="image/pj.jpeg" alt="Gemas 2">
+      <img src="image/heart.jpeg" alt="Gemas 3">
+      <img src="image/cute.jpeg" alt="Gemas 4">
+    </div>
+
+    <p class="funny-text">Gemaasss dan lucu ❤️❤️❤️</p>
+  </div>
+
+  <footer>
+    &copy; 2025 Gemas | Dibuat dengan ❤️ by Ibra
+  </footer>
+
+  <script>
+    // Efek hati dan teks “GEMAS!” saat gambar diklik
+    document.querySelectorAll(".gallery img").forEach(img => {
+      img.addEventListener("click", (e) => {
+        const container = document.querySelector(".container");
+        const love = document.createElement("div");
+        love.classList.add("love");
+
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left + (Math.random() * 40 - 20);
+        const y = e.clientY - rect.top + (Math.random() * 40 - 20);
+
+        love.textContent = Math.random() > 0.5 ? "❤️" : "✨ GEMAS! ✨";
+        love.style.left = x + "px";
+        love.style.top = y + "px";
+        container.appendChild(love);
+
+        setTimeout(() => love.remove(), 1000);
+      });
+    });
+  </script>
+</body>
+</html>
